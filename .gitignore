@@ -1,0 +1,5 @@
+# Dependencies
+
+/insta-connect-service/node_modules
+/insta-connect-ui/insta-connect-serve/node_modules
+/insta-connect-ui/insta-connect-app/node_modules
