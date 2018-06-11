@@ -1,2 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/purple-green.css';
+@import '~@angular/material/theming';
+@include mat-core();
+$lime-primary: mat-palette($mat-lime, 800);
+$lime-accent: mat-palette($mat-yellow, 400);
+$lime-warn: mat-palette($mat-red, 500);
+$lime-theme: mat-light-theme($lime-primary, $lime-accent, $lime-warn);
+@include angular-material-theme($lime-theme);
+
+$blue-primary: mat-palette($mat-blue, 800);
+$blue-accent: mat-palette($mat-yellow, 400);
+$blue-warn: mat-palette($mat-red, 500);
+$blue-theme: mat-light-theme($blue-primary, $blue-accent, $blue-warn);
+
+.blue-theme  {
+  @include angular-material-theme($blue-theme);
+}
+
+@import '~material-design-icons/iconfont/material-icons.css';
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.7); }
+
+* {
+  font-family: 'Segoe UI';
+}
+
+.label {
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.alt-label {
+  color: black;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+a, button, mat-icon {
+  cursor: pointer;
+}

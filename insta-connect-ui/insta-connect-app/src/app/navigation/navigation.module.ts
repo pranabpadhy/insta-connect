@@ -2,17 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NavigationRoutingModule } from './navigation-routing.module';
+import { MaterialModule } from '../material/material.module';
+
 import { HeaderComponent } from './header/header.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    NavigationRoutingModule
+    NavigationRoutingModule,
+    MaterialModule
   ],
   declarations: [
-    HeaderComponent,
-    SidenavComponent
+    HeaderComponent
+  ],
+  exports: [
+    HeaderComponent
   ]
 })
 export class NavigationModule { }
