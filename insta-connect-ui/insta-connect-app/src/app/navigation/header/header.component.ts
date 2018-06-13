@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MdcDrawer } from '@angular-mdc/web';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input('title') title: string;
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

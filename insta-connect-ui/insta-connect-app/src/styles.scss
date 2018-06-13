@@ -7,16 +7,6 @@ $lime-warn: mat-palette($mat-red, 500);
 $lime-theme: mat-light-theme($lime-primary, $lime-accent, $lime-warn);
 @include angular-material-theme($lime-theme);
 
-$blue-primary: mat-palette($mat-blue, 800);
-$blue-accent: mat-palette($mat-yellow, 400);
-$blue-warn: mat-palette($mat-red, 500);
-$blue-theme: mat-light-theme($blue-primary, $blue-accent, $blue-warn);
-
-.blue-theme  {
-  @include angular-material-theme($blue-theme);
-}
-
-@import '~material-design-icons/iconfont/material-icons.css';
 /* Rules for sizing the icon. */
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
@@ -31,20 +21,20 @@ $blue-theme: mat-light-theme($blue-primary, $blue-accent, $blue-warn);
 .material-icons.md-light { color: rgba(255, 255, 255, 1); }
 .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.7); }
 
+$mdc-theme-primary: #9E9D24;
+$mdc-theme-secondary: #FFEE58;
+$mdc-theme-background: #E6EE9C;
+$mdc-theme-surface: rgb(161, 167, 82);
+$mdc-theme-on-primary: #FFFFFF;
+$mdc-theme-on-secondary: #000000;
+$mdc-theme-on-surface: #eeeac3;
+$mdc-theme-text-hint-on-light: #000000;
+$mdc-theme-text-hint-on-dark: #FFFFFF;
+
+@import "~@angular-mdc/theme/material";
+
 * {
   font-family: 'Segoe UI';
-}
-
-.label {
-  color: white;
-  font-weight: 600;
-  font-size: 20px;
-}
-
-.alt-label {
-  color: black;
-  font-weight: 600;
-  font-size: 18px;
 }
 
 a, button, mat-icon {

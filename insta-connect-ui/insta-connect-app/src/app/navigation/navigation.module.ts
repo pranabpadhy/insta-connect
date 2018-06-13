@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NavigationRoutingModule } from './navigation-routing.module';
 import { MaterialModule } from '../material/material.module';
+import { MaterialDesignModule } from '../material-design/material-design.module';
 
 import { HeaderComponent } from './header/header.component';
 
@@ -10,7 +11,8 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     CommonModule,
     NavigationRoutingModule,
-    MaterialModule
+    MaterialModule,
+    MaterialDesignModule
   ],
   declarations: [
     HeaderComponent

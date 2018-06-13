@@ -1,8 +1,4 @@
 <app-header [title]="title"></app-header>
-
-<mat-sidenav-container class="sidenav">
-  <mat-sidenav mode="side" opened="openState">Sidenav content</mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div #routerOutlet>
+  <router-outlet></router-outlet>
+</div>

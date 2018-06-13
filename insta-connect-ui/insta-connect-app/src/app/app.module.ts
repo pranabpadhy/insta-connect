@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
+import { MaterialDesignModule } from './material-design/material-design.module';
 import { AutherizationModule } from './autherization/autherization.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { UserProfileModule } from './user-profile/user-profile.module';
@@ -19,6 +20,7 @@ import { HomePageModule } from './home-page/home-page.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
+    MaterialDesignModule,
     AutherizationModule,
     NavigationModule,
     UserProfileModule,

@@ -1,9 +1,17 @@
-.fill-space {
-  /* This fills the remaining space, by using flexbox. 
-  Every toolbar row uses a flexbox row layout. */
-  flex: 1 1 auto;
+mdc-app-bar, mdc-drawer-spacer {
+  margin-left: -10px;
 }
 
-.sidemenu-btn {
-  margin-right: 10px;
+.title {
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.alt-title {
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+  cursor: pointer;
 }
