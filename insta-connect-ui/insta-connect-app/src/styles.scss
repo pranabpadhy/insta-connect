@@ -22,13 +22,13 @@ $lime-theme: mat-light-theme($lime-primary, $lime-accent, $lime-warn);
 .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.7); }
 
 $mdc-theme-primary: #9E9D24;
-$mdc-theme-secondary: #FFEE58;
-$mdc-theme-background: #E6EE9C;
-$mdc-theme-surface: rgb(161, 167, 82);
+$mdc-theme-secondary: #D4E157;
+$mdc-theme-background: #F9FBE7;
+$mdc-theme-surface: #CDDC39;
 $mdc-theme-on-primary: #FFFFFF;
-$mdc-theme-on-secondary: #000000;
-$mdc-theme-on-surface: #eeeac3;
-$mdc-theme-text-hint-on-light: #000000;
+$mdc-theme-on-secondary: #212121;
+$mdc-theme-on-surface:  #212121;
+$mdc-theme-text-hint-on-light: #212121;
 $mdc-theme-text-hint-on-dark: #FFFFFF;
 
 @import "~@angular-mdc/theme/material";

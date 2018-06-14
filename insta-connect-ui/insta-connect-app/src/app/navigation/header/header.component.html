@@ -1,30 +1,37 @@
-<mdc-app-bar [fixed]="true" [mdc-elevation]="8">
+<mdc-app-bar [fixed]="true" [dense]="true" [mdc-elevation]="8">
   <mdc-app-bar-row>
     <mdc-app-bar-section [align]="'start'">
-      <a mdcIconButton class="material-icons md-light" (change)="(drawer.isOpen() ? drawer.close() : drawer.open())">menu</a>
-      <mdc-app-bar-title class="title">
-        {{title}}
-      </mdc-app-bar-title>
+      <a mdcIconButton class="material-icons md-light" (change)="(drawer.isOpen() ? drawer.close() : drawer.open());">menu</a>
+      <mdc-app-bar-title class="title">{{title}}</mdc-app-bar-title>
     </mdc-app-bar-section>
     <mdc-app-bar-section [align]="'end'">
-      <a mdcIconButton class="material-icons md-light" aria-label="Download" alt="Download">file_download</a>
-      <a mdcIconButton class="material-icons md-light" aria-label="Print this page" alt="Print this page">print</a>
-      <a mdcIconButton class="material-icons md-light" aria-label="Bookmark this page" alt="Bookmark this page">bookmark</a>
+      <a mdcIconButton class="material-icons md-light" aria-label="Search" alt="Search" (click)="isOpen=!isOpen">search</a>
+      <mdc-menu-anchor #extra>
+        <a mdcIconButton class="material-icons md-light" aria-label="Extra" alt="Extra" (click)="extramenu.open()">more_vert</a>
+      </mdc-menu-anchor>
     </mdc-app-bar-section>
   </mdc-app-bar-row>
 </mdc-app-bar>
 
 <mdc-drawer [drawer]="'temporary'" [closeOnClick]="false" [fixedAdjustElement]="routerOutlet" #drawer>
-  <mdc-drawer-spacer [mdc-elevation]="8">
-    <mdc-app-bar-section [align]="'start'">
-      <a mdcIconButton class="material-icons md-dark" (change)="(drawer.isOpen() ? drawer.close() : drawer.open())">menu</a>
-      <mdc-app-bar-title class="alt-title">
-        {{title}}
-      </mdc-app-bar-title>
-    </mdc-app-bar-section>
-  </mdc-drawer-spacer>
-  <mdc-drawer-header>
-    <mdc-drawer-header-content class="title"></mdc-drawer-header-content>
+  <mdc-drawer-header #drawerHeader>
+    <mdc-drawer-header-content class="title">{{title}}</mdc-drawer-header-content>
   </mdc-drawer-header>
   <mdc-drawer-content></mdc-drawer-content>
 </mdc-drawer>
+
+<mdc-menu #extramenu [anchor]="extra" [anchorCorner]="'bottom-start'">
+  <mdc-menu-item>Item 1</mdc-menu-item>
+  <mdc-menu-item>Item 2</mdc-menu-item>
+  <mdc-menu-item>Item 3</mdc-menu-item>
+  <mdc-menu-divider></mdc-menu-divider>
+  <mdc-menu-item>Item 4</mdc-menu-item>
+</mdc-menu>
+
+<div class="search-bar" [hidden]="!isOpen">
+  <form [formGroup]="searchForm">
+    <mdc-text-field [outline]="true" formControlName="searchField" [label]="'Search'">
+      <mdc-icon trailing clickable>search</mdc-icon>
+    </mdc-text-field>
+  </form>
+</div>

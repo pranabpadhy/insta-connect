@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NavigationRoutingModule } from './navigation-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { MaterialDesignModule } from '../material-design/material-design.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './header/header.component';
 
@@ -12,7 +13,9 @@ import { HeaderComponent } from './header/header.component';
     CommonModule,
     NavigationRoutingModule,
     MaterialModule,
-    MaterialDesignModule
+    MaterialDesignModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   declarations: [
     HeaderComponent
