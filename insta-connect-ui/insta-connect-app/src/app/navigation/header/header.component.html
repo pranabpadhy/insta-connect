@@ -1,13 +1,13 @@
-<mdc-app-bar [fixed]="true" [dense]="true" [mdc-elevation]="8">
+<mdc-app-bar [fixed]="true" [dense]="true" [mdc-elevation]="6">
   <mdc-app-bar-row>
     <mdc-app-bar-section [align]="'start'">
-      <a mdcIconButton class="material-icons md-light" (change)="(drawer.isOpen() ? drawer.close() : drawer.open());">menu</a>
+      <mdc-icon mdcAppBarNavIcon class="material-icons md-light" (click)="(drawer.isOpen() ? drawer.close() : drawer.open());">menu</mdc-icon>
       <mdc-app-bar-title class="title">{{title}}</mdc-app-bar-title>
     </mdc-app-bar-section>
     <mdc-app-bar-section [align]="'end'">
-      <a mdcIconButton class="material-icons md-light" aria-label="Search" alt="Search" (click)="isOpen=!isOpen">search</a>
+      <mdc-icon mdcAppBarActionItem class="material-icons md-light" aria-label="Search" alt="Search" (click)="isOpen=!isOpen">search</mdc-icon>
       <mdc-menu-anchor #extra>
-        <a mdcIconButton class="material-icons md-light" aria-label="Extra" alt="Extra" (click)="extramenu.open()">more_vert</a>
+        <mdc-icon mdcAppBarActionItem class="material-icons md-light" aria-label="Extra" alt="Extra" (click)="extramenu.open()">more_vert</mdc-icon>
       </mdc-menu-anchor>
     </mdc-app-bar-section>
   </mdc-app-bar-row>
@@ -15,7 +15,7 @@
 
 <mdc-drawer [drawer]="'temporary'" [closeOnClick]="false" [fixedAdjustElement]="routerOutlet" #drawer>
   <mdc-drawer-header #drawerHeader>
-    <mdc-drawer-header-content class="title">{{title}}</mdc-drawer-header-content>
+    <mdc-drawer-header-content class="title"></mdc-drawer-header-content>
   </mdc-drawer-header>
   <mdc-drawer-content></mdc-drawer-content>
 </mdc-drawer>
@@ -28,10 +28,8 @@
   <mdc-menu-item>Item 4</mdc-menu-item>
 </mdc-menu>
 
-<div class="search-bar" [hidden]="!isOpen">
-  <form [formGroup]="searchForm">
-    <mdc-text-field [outline]="true" formControlName="searchField" [label]="'Search'">
-      <mdc-icon trailing clickable>search</mdc-icon>
-    </mdc-text-field>
-  </form>
-</div>
+<form [formGroup]="searchForm" class="search-bar" [hidden]="!isOpen" background="true">
+  <mdc-text-field [outline]="true" formControlName="searchField" [label]="'Search'" background>
+    <mdc-icon trailing clickable>search</mdc-icon>
+  </mdc-text-field>
+</form>
