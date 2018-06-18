@@ -28,8 +28,8 @@
   <mdc-menu-item>Item 4</mdc-menu-item>
 </mdc-menu>
 
-<form [formGroup]="searchForm" class="search-bar" [hidden]="!isOpen" background="true">
-  <mdc-text-field [outline]="true" formControlName="searchField" [label]="'Search'" background>
+<form [formGroup]="searchForm" class="search-bar" [hidden]="!isOpen">
+  <mdc-text-field [outline]="true" formControlName="searchField" [label]="'Search'">
     <mdc-icon trailing clickable>search</mdc-icon>
   </mdc-text-field>
 </form>

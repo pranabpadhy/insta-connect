@@ -41,14 +41,14 @@
 
 /* Theming material design */
 
-$mdc-theme-primary: #9E9D24;
-$mdc-theme-secondary: #D4E157;
-$mdc-theme-background: #F9FBE7;
-$mdc-theme-surface: #CDDC39;
+$mdc-theme-primary: #3949AB;
+$mdc-theme-secondary: #8C9EFF;
+$mdc-theme-background: #C5CAE9;
+$mdc-theme-surface: #5C6BC0;
 $mdc-theme-on-primary: #FFFFFF;
-$mdc-theme-on-secondary: #212121;
-$mdc-theme-on-surface: #212121;
-$mdc-theme-text-hint-on-light: #212121;
+$mdc-theme-on-secondary: #000000;
+$mdc-theme-on-surface: #000000;
+$mdc-theme-text-hint-on-light: #000000;
 $mdc-theme-text-hint-on-dark: #FFFFFF;
 @import "~@angular-mdc/theme/material";
 

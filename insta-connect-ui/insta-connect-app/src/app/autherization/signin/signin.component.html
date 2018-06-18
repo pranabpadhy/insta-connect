@@ -1,3 +1,19 @@
-<p>
-  signin works!
-</p>
+<div class="container">
+  <div class="center">
+    <form [formGroup]="form">
+      <mdc-text-field [outline]="true" formControlName="email" [label]="'Email ID'">
+        <mdc-icon trailing>account_box</mdc-icon>
+      </mdc-text-field><br/>
+      <mdc-text-field [outline]="true" type="password" *ngIf="!visible" formControlName="password" [label]="'Password'">
+        <mdc-icon trailing clickable (click)="visible=true">visibility</mdc-icon>
+      </mdc-text-field>
+      <mdc-text-field [outline]="true" *ngIf="visible" formControlName="password" [label]="'Password'">
+        <mdc-icon trailing clickable (click)="visible=false">visibility_off</mdc-icon>
+      </mdc-text-field><br/>
+      <div class="form-btn">
+        <button mdc-button [primary]="true" [raised]="true">SIGN IN</button>
+        <a mdc-button [primary]="true" [raised]="true" routerLink="/signup">SIGN UP</a>
+      </div>
+    </form>
+  </div>
+</div>

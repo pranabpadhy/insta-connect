@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
-
-  constructor() { }
+  form: FormGroup;
+  visible: boolean;
+  constructor() {
+    this.visible = false;
+    this.createForm();
+  }
 
   ngOnInit() {
   }
 
+  createForm() {
+    this.form = new FormGroup({
+      email: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required)
+    });
+  }
 }
