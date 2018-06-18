@@ -1,4 +1,4 @@
-<app-header [title]="title"></app-header><br/>
+<app-header *ngIf="router.url !== '/signin' && router.url !== '/signup'" [title]="title"></app-header><br/>
 <div class="router-outlet">
   <router-outlet></router-outlet>
 </div>
