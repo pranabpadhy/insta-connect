@@ -27,8 +27,10 @@ import {
   MdcTabModule,
   MdcTextFieldModule,
   MdcThemeModule,
+  MdcToolbarModule,
   MdcTypographyModule
 } from '@angular-mdc/web';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   imports: [
@@ -59,6 +61,8 @@ import {
     MdcTabModule,
     MdcTextFieldModule,
     MdcThemeModule,
+    MdcToolbarModule,
+    MatTooltipModule,
     MdcTypographyModule
   ],
   exports: [
@@ -89,6 +93,8 @@ import {
     MdcTabModule,
     MdcTextFieldModule,
     MdcThemeModule,
+    MdcToolbarModule,
+    MatTooltipModule,
     MdcTypographyModule
   ]
 })

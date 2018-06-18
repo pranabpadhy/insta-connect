@@ -22,8 +22,11 @@ mdc-menu {
 
 .search-bar {
   position: relative;
-  top: 40px;
+  top: 30px;
   z-index: 1;
+  padding: 10px;
+  max-width: 400px;
+  margin: auto;
 }
 
 mdc-text-field {

@@ -9,6 +9,7 @@ import { AutherizationModule } from './autherization/autherization.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { UserProfileModule } from './user-profile/user-profile.module';
 import { HomePageModule } from './home-page/home-page.module';
+import { AppCommonModule } from './app-common/app-common.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomePageModule } from './home-page/home-page.module';
     AutherizationModule,
     NavigationModule,
     UserProfileModule,
-    HomePageModule
+    HomePageModule,
+    AppCommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,19 +1,40 @@
 <div class="container">
   <div class="center">
+    <button mdc-fab class="profile">
+      <img src="/assets/blank-profile-picture.jpg" alt="Profile" style="height: 150px; width: 150px;" />
+    </button>
     <form [formGroup]="form">
-      <mdc-text-field [outline]="true" formControlName="email" [label]="'Email ID'">
+      <mdc-text-field class="text-box" [outline]="true" formControlName="email" [label]="'Email ID'">
         <mdc-icon trailing>account_box</mdc-icon>
       </mdc-text-field><br/>
-      <mdc-text-field [outline]="true" type="password" *ngIf="!visible" formControlName="password" [label]="'Password'">
-        <mdc-icon trailing clickable (click)="visible=true">visibility</mdc-icon>
+      <mdc-text-field class="text-box" [outline]="true" type="password" formControlName="password" [label]="'Password'" *ngIf="!visible">
+        <mdc-icon trailing clickable (click)="visible=!visible">visibility</mdc-icon>
       </mdc-text-field>
-      <mdc-text-field [outline]="true" *ngIf="visible" formControlName="password" [label]="'Password'">
-        <mdc-icon trailing clickable (click)="visible=false">visibility_off</mdc-icon>
+      <mdc-text-field class="text-box" [outline]="true" type="text" formControlName="password" [label]="'Password'" *ngIf="visible">
+        <mdc-icon trailing clickable (click)="visible=!visible">visibility_off</mdc-icon>
       </mdc-text-field><br/>
-      <div class="form-btn">
-        <button mdc-button [primary]="true" [raised]="true">SIGN IN</button>
-        <a mdc-button [primary]="true" [raised]="true" routerLink="/signup">SIGN UP</a>
-      </div>
+      <mdc-toolbar class="form-btn">
+        <mdc-toolbar-row>
+          <mdc-toolbar-section [alignStart]="true">
+            <button mdc-button [primary]="true" [raised]="true" (click)="signin()">Sign in</button>
+          </mdc-toolbar-section>
+          <mdc-toolbar-section>
+            <span class="small-font">OR Signin with</span>
+          </mdc-toolbar-section>
+          <mdc-toolbar-section [alignEnd]="true">
+            <button mdc-button  class="google" [primary]="true" [raised]="true" (click)="googleSignin()">
+              <img src="/assets/google_logo.png" alt="Google" style="height: 32px; width: 90px;" />
+            </button>
+          </mdc-toolbar-section>
+        </mdc-toolbar-row>
+      </mdc-toolbar>
     </form>
+    <mdc-toolbar class="form-btn small-font">
+      <mdc-toolbar-row>
+        <mdc-toolbar-section>
+          Don't have an account?&nbsp;<a class="link" routerLink="/signup">Click here</a>&nbsp; to register.
+        </mdc-toolbar-section>
+      </mdc-toolbar-row>
+    </mdc-toolbar>
   </div>
 </div>
