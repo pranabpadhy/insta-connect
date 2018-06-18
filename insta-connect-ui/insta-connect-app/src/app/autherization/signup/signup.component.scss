@@ -1,0 +1,41 @@
+.center {
+  padding: 10px;
+  max-width: 400px;
+  position: relative;
+  top: 1%;
+  margin: auto;
+}
+
+.text-box {
+  width: 100%;
+}
+
+.form-btn {
+  background: unset;
+}
+
+.profile {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  left: 30%;
+  margin: auto;
+}
+
+.btn-add {
+  font-size: 100px;
+}
+
+.mdc-fab.indigo600Fab {
+  background-color: #2962FF;
+}
+
+@media(max-width: 320px) {
+  .profile {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    left: 25%;
+    margin: auto;
+  }
+}

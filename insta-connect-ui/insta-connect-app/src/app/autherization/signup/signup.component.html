@@ -1,3 +1,23 @@
-<p>
-  signup works!
-</p>
+<div class="container">
+  <div class="center">
+    <button mdc-fab class="profile indigo600Fab">
+      <mdc-icon class="material-icons md-light btn-add">add</mdc-icon>
+    </button>
+    <form [formGroup]="form">
+      <mdc-text-field class="text-box" [outline]="true" formControlName="email" [label]="'Email ID'"></mdc-text-field><br/>
+      <mdc-text-field class="text-box" [outline]="true" formControlName="name" [label]="'Name'"></mdc-text-field><br/>
+      <mdc-text-field class="text-box" [outline]="true" formControlName="mobile" [label]="'Mobile'"></mdc-text-field><br/>
+      <mdc-text-field class="text-box" [outline]="true" formControlName="password" [label]="'Password'"></mdc-text-field><br/>
+      <mdc-text-field class="text-box" [outline]="true" formControlName="cnfpassword" [label]="'Confirm Password'"></mdc-text-field><br/>
+      <mdc-toolbar class="form-btn">
+        <mdc-toolbar-row>
+          <mdc-toolbar-section [alignStart]="true"></mdc-toolbar-section>
+          <mdc-toolbar-section>
+            <button mdc-button [primary]="true" [raised]="true" (click)="signup()">Sign up</button>
+          </mdc-toolbar-section>
+          <mdc-toolbar-section [alignEnd]="true"></mdc-toolbar-section>
+        </mdc-toolbar-row>
+      </mdc-toolbar>
+    </form>
+  </div>
+</div>

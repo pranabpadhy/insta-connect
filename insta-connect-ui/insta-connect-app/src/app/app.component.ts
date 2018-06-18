@@ -8,7 +8,5 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'Insta Connect';
-  constructor(public router: Router) {
-    console.log(router);
-  }
+  constructor(public router: Router) {}
 }

@@ -41,10 +41,10 @@
 
 /* Theming material design */
 
-$mdc-theme-primary: #3949AB;
-$mdc-theme-secondary: #8C9EFF;
+$mdc-theme-primary: #2962FF;
+$mdc-theme-secondary: #90CAF9;
 $mdc-theme-background: #C5CAE9;
-$mdc-theme-surface: #5C6BC0;
+$mdc-theme-surface: #42A5F5;
 $mdc-theme-on-primary: #FFFFFF;
 $mdc-theme-on-secondary: #000000;
 $mdc-theme-on-surface: #000000;
@@ -117,4 +117,18 @@ a,
 button,
 mat-icon {
   cursor: pointer;
+}
+
+.container {
+  background-image: url("/assets/bg3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
 }
