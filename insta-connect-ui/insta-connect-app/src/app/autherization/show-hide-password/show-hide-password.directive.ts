@@ -1,26 +1,31 @@
-import { Directive, HostBinding, ElementRef, Renderer2, OnInit } from '@angular/core';
-import { MdcTextField } from '@angular-mdc/web';
+import { Directive, ElementRef, Renderer2, OnInit, Input } from '@angular/core';
 
 @Directive({
   selector: '[appShowHidePassword]'
 })
 
 export class ShowHidePasswordDirective implements OnInit {
-
+  ShowPassword: boolean;
   constructor(
-    public textfield: ElementRef,
-    public render: Renderer2
-  ) {}
+    private textfield: ElementRef,
+    private render: Renderer2
+  ) {
+    this.ShowPassword = false;
+  }
 
   ngOnInit() {
     this.render.setProperty(this.textfield.nativeElement.firstChild, 'type', 'password');
+    this.render.listen(this.textfield.nativeElement.children[1], 'mousedown', event => this.eventHandler(event));
+    this.render.listen(this.textfield.nativeElement.children[1], 'mouseup', event => this.eventHandler(event));
   }
 
-  changeType(type: string): void {
-    this.render.setProperty(this.textfield.nativeElement.firstChild, 'type', type);
-    if (type === 'password') {
+  eventHandler(event: any): any {
+    this.ShowPassword = !this.ShowPassword;
+    if (!this.ShowPassword) {
+      this.render.setProperty(this.textfield.nativeElement.firstChild, 'type', 'password');
       this.textfield.nativeElement.children[1].innerHTML = 'visibility';
     } else {
+      this.render.setProperty(this.textfield.nativeElement.firstChild, 'type', 'text');
       this.textfield.nativeElement.children[1].innerHTML = 'visibility_off';
     }
   }
