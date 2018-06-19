@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { UiValidation } from '../../app-common/ui-validation';
+import { ShowHidePasswordDirective } from '../show-hide-password/show-hide-password.directive';
 
 @Component({
   selector: 'app-signup',
@@ -9,7 +10,14 @@ import { UiValidation } from '../../app-common/ui-validation';
 })
 export class SignupComponent implements OnInit {
   form: FormGroup;
+  visible: boolean;
+  cnfvisible: boolean;
+
+  @ViewChild(ShowHidePasswordDirective) showHidePassword: ShowHidePasswordDirective;
+
   constructor() {
+    this.visible = false;
+    this.cnfvisible = false;
     this.createForm();
   }
 
@@ -32,6 +40,24 @@ export class SignupComponent implements OnInit {
 
   signup() {
 
+  }
+
+  toggleShowPassword(event) {
+    this.visible = !this.visible;
+    if (this.visible) {
+      this.showHidePassword.changeType('text');
+    } else {
+      this.showHidePassword.changeType('password');
+    }
+  }
+
+  toggleShowCnfPassword() {
+    this.cnfvisible = !this.cnfvisible;
+    if (this.cnfvisible) {
+      this.showHidePassword.changeType('text');
+    } else {
+      this.showHidePassword.changeType('password');
+    }
   }
 
 }

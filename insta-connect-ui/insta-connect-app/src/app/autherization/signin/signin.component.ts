@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as crypto from 'crypto-js';
 
 import { UiValidation } from '../../app-common/ui-validation';
+import { ShowHidePasswordDirective } from '../show-hide-password/show-hide-password.directive';
 
 @Component({
   selector: 'app-signin',
@@ -12,6 +13,8 @@ import { UiValidation } from '../../app-common/ui-validation';
 export class SigninComponent implements OnInit {
   form: FormGroup;
   visible: boolean;
+
+  @ViewChild(ShowHidePasswordDirective) showHidePassword: ShowHidePasswordDirective;
 
   constructor() {
     this.visible = false;
@@ -53,4 +56,13 @@ export class SigninComponent implements OnInit {
   }
 
   googleSignin() {}
+
+  toggleShowPassword(event) {
+    this.visible = !this.visible;
+    if (this.visible) {
+      this.showHidePassword.changeType('text');
+    } else {
+      this.showHidePassword.changeType('password');
+    }
+  }
 }

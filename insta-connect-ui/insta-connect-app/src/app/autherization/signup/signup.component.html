@@ -4,11 +4,15 @@
       <mdc-icon class="material-icons md-light btn-add">add</mdc-icon>
     </button>
     <form [formGroup]="form">
-      <mdc-text-field class="text-box" [outline]="true" formControlName="email" [label]="'Email ID'"></mdc-text-field><br/>
-      <mdc-text-field class="text-box" [outline]="true" formControlName="name" [label]="'Name'"></mdc-text-field><br/>
-      <mdc-text-field class="text-box" [outline]="true" formControlName="mobile" [label]="'Mobile'"></mdc-text-field><br/>
-      <mdc-text-field class="text-box" [outline]="true" formControlName="password" [label]="'Password'"></mdc-text-field><br/>
-      <mdc-text-field class="text-box" [outline]="true" formControlName="cnfpassword" [label]="'Confirm Password'"></mdc-text-field><br/>
+      <mdc-text-field type="email" class="text-box" [outline]="true" formControlName="email" [label]="'Email ID'"></mdc-text-field><br/>
+      <mdc-text-field type="text" class="text-box" [outline]="true" formControlName="name" [label]="'Name'"></mdc-text-field><br/>
+      <mdc-text-field type="text" class="text-box" [outline]="true" formControlName="mobile" [label]="'Mobile'"></mdc-text-field><br/>
+      <mdc-text-field appShowHidePassword class="text-box" [outline]="true" formControlName="password" [label]="'Password'">
+        <mdc-icon trailing clickable (click)="toggleShowPassword()">visibility</mdc-icon>
+      </mdc-text-field>
+      <mdc-text-field appShowHideCnfPassword class="text-box" [outline]="true" formControlName="cnfpassword" [label]="'Confirm Password'">
+        <mdc-icon trailing clickable (click)="toggleShowCnfPassword()">visibility</mdc-icon>
+      </mdc-text-field>
       <mdc-toolbar class="form-btn">
         <mdc-toolbar-row>
           <mdc-toolbar-section [alignStart]="true"></mdc-toolbar-section>

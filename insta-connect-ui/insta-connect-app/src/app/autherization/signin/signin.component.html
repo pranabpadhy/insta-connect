@@ -4,14 +4,11 @@
       <img src="/assets/blank-profile-picture.jpg" alt="Profile" style="height: 150px; width: 150px;" />
     </button>
     <form [formGroup]="form">
-      <mdc-text-field class="text-box" [outline]="true" formControlName="email" [label]="'Email ID'">
+      <mdc-text-field class="text-box" type="email" [outline]="true" formControlName="email" [label]="'Email ID'">
         <mdc-icon trailing>account_box</mdc-icon>
       </mdc-text-field><br/>
-      <mdc-text-field class="text-box" [outline]="true" type="password" formControlName="password" [label]="'Password'" *ngIf="!visible">
-        <mdc-icon trailing clickable (click)="visible=!visible">visibility</mdc-icon>
-      </mdc-text-field>
-      <mdc-text-field class="text-box" [outline]="true" type="text" formControlName="password" [label]="'Password'" *ngIf="visible">
-        <mdc-icon trailing clickable (click)="visible=!visible">visibility_off</mdc-icon>
+      <mdc-text-field appShowHidePassword class="text-box" [outline]="true" formControlName="password" [label]="'Password'">
+        <mdc-icon trailing clickable (click)="toggleShowPassword()">visibility</mdc-icon>
       </mdc-text-field><br/>
       <mdc-toolbar class="form-btn">
         <mdc-toolbar-row>
@@ -23,7 +20,7 @@
           </mdc-toolbar-section>
           <mdc-toolbar-section [alignEnd]="true">
             <button mdc-button  class="google" [primary]="true" [raised]="true" (click)="googleSignin()">
-              <img src="/assets/google_logo.png" alt="Google" style="height: 32px; width: 90px;" />
+              <img src="/assets/google_logo.png" alt="Google" style="height: 32px; width: 95px;" />
             </button>
           </mdc-toolbar-section>
         </mdc-toolbar-row>
