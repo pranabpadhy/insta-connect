@@ -4,24 +4,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AutherizationRoutingModule } from './autherization-routing.module';
 import { MaterialDesignModule } from '../material-design/material-design.module';
+import { AppCommonModule } from '../app-common/app-common.module';
 
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
-
-import { ShowHidePasswordDirective } from './show-hide-password/show-hide-password.directive';
 
 @NgModule({
   imports: [
     CommonModule,
     AutherizationRoutingModule,
     ReactiveFormsModule,
-    MaterialDesignModule
+    MaterialDesignModule,
+    AppCommonModule
   ],
   declarations: [
     SigninComponent,
-    SignupComponent,
-    ShowHidePasswordDirective
-  ],
-  exports: [ShowHidePasswordDirective]
+    SignupComponent
+  ]
 })
 export class AutherizationModule { }

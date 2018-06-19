@@ -23,10 +23,8 @@ export class ShowHidePasswordDirective implements OnInit {
     this.ShowPassword = !this.ShowPassword;
     if (!this.ShowPassword) {
       this.render.setProperty(this.textfield.nativeElement.firstChild, 'type', 'password');
-      this.textfield.nativeElement.children[1].innerHTML = 'visibility';
     } else {
       this.render.setProperty(this.textfield.nativeElement.firstChild, 'type', 'text');
-      this.textfield.nativeElement.children[1].innerHTML = 'visibility_off';
     }
   }
 
