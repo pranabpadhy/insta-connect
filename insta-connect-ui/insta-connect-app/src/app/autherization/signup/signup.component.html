@@ -4,16 +4,29 @@
       <mdc-icon class="material-icons md-light btn-add">camera_alt</mdc-icon>
     </button>
     <form [formGroup]="form">
-      <mdc-text-field type="email" class="text-box" [outline]="true" formControlName="email" [label]="'Email ID'"></mdc-text-field><br/>
-      <mdc-text-field type="text" class="text-box" [outline]="true" formControlName="name" [label]="'Name'"></mdc-text-field><br/>
-      <mdc-text-field type="text" class="text-box" [outline]="true" formControlName="mobile" [label]="'Mobile'"></mdc-text-field><br/>
-      <mdc-text-field appShowHidePassword class="text-box" [outline]="true" formControlName="password" [label]="'Password'">
+      <mdc-text-field type="email" class="text-box" formControlName="email" [label]="'Email ID'" [helperText]="emailHelperText"></mdc-text-field>
+      <p mdcTextFieldHelperText class="error-text" #emailHelperText="mdcHelperText" [persistent]="true" [validation]="true"></p>
+      <mdc-text-field type="text" class="text-box" formControlName="name" [label]="'Name'" [helperText]="nameHelperText"></mdc-text-field>
+      <p mdcTextFieldHelperText class="error-text" #nameHelperText="mdcHelperText" [persistent]="true" [validation]="true"></p>
+      <mat-form-field class="text-box align">
+        <mat-select #selectCountry placeholder="Country" formControlName="country">
+          <mat-option *ngFor="let country of isdCodeList" [value]="code">
+            <span><img src="/assets/blank.gif" [class]="'img-align flag flag-' + country.flag" [alt]="country.name" />{{ country.name }}</span>
+          </mat-option>
+        </mat-select>
+        <mat-hint align="start" class="error-text"></mat-hint>
+      </mat-form-field>
+      <mdc-text-field type="tel" class="text-box" formControlName="mobile" [label]="'Mobile'" [helperText]="mobileHelperText"></mdc-text-field>
+      <p mdcTextFieldHelperText class="error-text" #mobileHelperText="mdcHelperText" [persistent]="true" [validation]="true"></p>
+      <mdc-text-field appShowHidePassword class="text-box" formControlName="password" [label]="'Password'" [helperText]="passwordHelperText">
         <mdc-icon trailing clickable>visibility</mdc-icon>
       </mdc-text-field>
-      <mdc-text-field appShowHidePassword class="text-box" [outline]="true" formControlName="cnfpassword" [label]="'Confirm Password'">
+      <p mdcTextFieldHelperText class="error-text" #passwordHelperText="mdcHelperText" [persistent]="true" [validation]="true"></p>
+      <mdc-text-field appShowHidePassword class="text-box" formControlName="cnfpassword" [label]="'Confirm Password'" [helperText]="cnfPasswordHelperText">
         <mdc-icon trailing clickable>visibility</mdc-icon>
       </mdc-text-field>
-      <mdc-toolbar class="form-btn">
+      <p mdcTextFieldHelperText class="error-text" #cnfPasswordHelperText="mdcHelperText" [persistent]="true" [validation]="true"></p>
+      <mdc-toolbar class="clear-bg">
         <mdc-toolbar-row>
           <mdc-toolbar-section [alignStart]="true"></mdc-toolbar-section>
           <mdc-toolbar-section>

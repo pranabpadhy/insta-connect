@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MdcTextField } from '@angular-mdc/web';
 import * as crypto from 'crypto-js';
 
 import { UiValidation } from '../../app-common/ui-validation';
@@ -12,12 +13,14 @@ import { UiValidation } from '../../app-common/ui-validation';
 export class SigninComponent implements OnInit {
   form: FormGroup;
 
+  @ViewChild('email') email: MdcTextField;
+  @ViewChild('password') password: MdcTextField;
+
   constructor() {
     this.createForm();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   createForm() {
     this.form = new FormGroup({
@@ -29,16 +32,21 @@ export class SigninComponent implements OnInit {
   validate() {
     if (this.form.controls.email.errors) {
       if (this.form.controls.email.errors.invalidEmail) {
-        alert('Invalid Email');
+        this.email.setHelperTextContent('Invalid Email');
+        this.password.setHelperTextContent(null);
         return false;
       }
-      alert('Enter a valid Email');
+      this.email.setHelperTextContent('Enter a valid Email');
+      this.password.setHelperTextContent(null);
       return false;
     }
     if (this.form.controls.password.errors) {
-      alert('Enter Password');
+      this.email.setHelperTextContent(null);
+      this.password.setHelperTextContent('Enter Password');
       return false;
     }
+    this.email.setHelperTextContent(null);
+    this.password.setHelperTextContent(null);
     return true;
   }
 

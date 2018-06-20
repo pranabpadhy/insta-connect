@@ -7,11 +7,25 @@
 }
 
 .text-box {
-  width: 100%;
+  width: 100% !important;
 }
 
-.form-btn {
+.clear-bg {
   background: unset;
+}
+
+.align {
+  margin-top: 15px;
+  margin-bottom: -15px;
+}
+
+.error-text {
+  color: #ff0000 !important;
+}
+
+.img-align {
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 .profile {

@@ -4,13 +4,15 @@
       <img src="/assets/blank-profile-picture.jpg" alt="Profile" style="height: 150px; width: 150px;" />
     </button>
     <form [formGroup]="form">
-      <mdc-text-field class="text-box" type="email" [outline]="true" formControlName="email" [label]="'Email ID'">
+      <mdc-text-field #email class="text-box" type="email" formControlName="email" [label]="'Email ID'" [helperText]="emailHelperText">
         <mdc-icon trailing>account_box</mdc-icon>
-      </mdc-text-field><br/>
-      <mdc-text-field appShowHidePassword class="text-box" [outline]="true" formControlName="password" [label]="'Password'">
+      </mdc-text-field>
+      <p mdcTextFieldHelperText class="error-text" #emailHelperText="mdcHelperText" [persistent]="true" [validation]="true"></p>
+      <mdc-text-field #password appShowHidePassword class="text-box" formControlName="password" [label]="'Password'" [helperText]="passwordHelperText">
         <mdc-icon trailing clickable>visibility</mdc-icon>
-      </mdc-text-field><br/>
-      <mdc-toolbar class="form-btn">
+      </mdc-text-field>
+      <p mdcTextFieldHelperText class="error-text" #passwordHelperText="mdcHelperText" [persistent]="true" [validation]="true"></p>
+      <mdc-toolbar class="clear-bg">
         <mdc-toolbar-row>
           <mdc-toolbar-section [alignStart]="true">
             <button mdc-button [primary]="true" [raised]="true" (click)="signin()">Sign in</button>
@@ -26,7 +28,7 @@
         </mdc-toolbar-row>
       </mdc-toolbar>
     </form>
-    <mdc-toolbar class="form-btn">
+    <mdc-toolbar class="clear-bg">
       <mdc-toolbar-row>
         <mdc-toolbar-section>
           Don't have an account? Signup&nbsp;<a class="link" routerLink="/signup">here.</a>

@@ -15,16 +15,17 @@ export class ShowHidePasswordDirective implements OnInit {
 
   ngOnInit() {
     this.render.setProperty(this.textfield.nativeElement.firstChild, 'type', 'password');
-    this.render.listen(this.textfield.nativeElement.children[1], 'mousedown', event => this.eventHandler(event));
-    this.render.listen(this.textfield.nativeElement.children[1], 'mouseup', event => this.eventHandler(event));
+    this.render.listen(this.textfield.nativeElement.children[1], 'click', event => this.eventHandler(event));
   }
 
   eventHandler(event: any): any {
     this.ShowPassword = !this.ShowPassword;
     if (!this.ShowPassword) {
       this.render.setProperty(this.textfield.nativeElement.firstChild, 'type', 'password');
+      this.render.setProperty(this.textfield.nativeElement.children[1], 'innerHTML', 'visibility');
     } else {
       this.render.setProperty(this.textfield.nativeElement.firstChild, 'type', 'text');
+      this.render.setProperty(this.textfield.nativeElement.children[1], 'innerHTML', 'visibility_off');
     }
   }
 
