@@ -10,6 +10,11 @@
   width: 100% !important;
 }
 
+.text-box > mdc-icon {
+  margin-right: -15px;
+  margin-bottom: -10px;
+}
+
 .clear-bg {
   background: unset;
 }
@@ -19,13 +24,23 @@
   margin-bottom: -15px;
 }
 
+.align-tel {
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+
 .error-text {
   color: #ff0000 !important;
 }
 
 .img-align {
-  margin-top: 10px;
-  margin-right: 10px;
+  margin-bottom: -5px !important;
+  margin-right: 10px !important;
+}
+
+.txt-align {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
 }
 
 .profile {

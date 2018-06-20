@@ -12,7 +12,6 @@ import { UiValidation } from '../../app-common/ui-validation';
 })
 export class SigninComponent implements OnInit {
   form: FormGroup;
-
   @ViewChild('email') email: MdcTextField;
   @ViewChild('password') password: MdcTextField;
 
