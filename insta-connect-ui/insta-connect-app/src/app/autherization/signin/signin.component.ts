@@ -12,14 +12,24 @@ import { UiValidation } from '../../app-common/ui-validation';
 })
 export class SigninComponent implements OnInit {
   form: FormGroup;
+  tooltip_msg: string;
   @ViewChild('email') email: MdcTextField;
   @ViewChild('password') password: MdcTextField;
 
   constructor() {
+    this.tooltip_msg = 'Show Password';
     this.createForm();
   }
 
   ngOnInit() {}
+
+  changeTooltipMsg() {
+    if (this.tooltip_msg === 'Show Password') {
+      this.tooltip_msg = 'Hide Password';
+    } else {
+      this.tooltip_msg = 'Show Password';
+    }
+  }
 
   createForm() {
     this.form = new FormGroup({

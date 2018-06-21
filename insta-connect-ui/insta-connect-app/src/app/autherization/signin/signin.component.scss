@@ -36,14 +36,17 @@
   font-size: 165px;
 }
 
-.google {
-  padding: auto;
-  background-color: #ffffff;
-  width: 120px;
+.google{
+  background-color: #F4521E;
+}
+
+.google > img {
+  width: 64px;
+  height: 64px;
 }
 
 .error-text {
-  color: #ff0000 !important;
+  color: #FF0000 !important;
 }
 
 .top-center {

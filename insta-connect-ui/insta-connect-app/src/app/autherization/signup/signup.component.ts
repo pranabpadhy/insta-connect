@@ -15,6 +15,7 @@ export class SignupComponent implements OnInit {
   form: FormGroup;
   isdCodeList = IsdCodeList.list;
   error: any;
+  tooltip_msg: any;
 
   @ViewChild('email') email: MdcTextField;
   @ViewChild('name') name: MdcTextField;
@@ -23,6 +24,10 @@ export class SignupComponent implements OnInit {
   @ViewChild('cnfpassword') cnfpassword: MdcTextField;
 
   constructor() {
+    this.tooltip_msg = {
+      pass: 'Show Password',
+      cnf: 'Show Password'
+    };
     this.createForm();
   }
 
@@ -147,6 +152,14 @@ export class SignupComponent implements OnInit {
     this.cnfpassword.setHelperTextContent(null);
     this.error = {};
     return true;
+  }
+
+  changeTooltipMsg(type: string) {
+    if (this.tooltip_msg[type] === 'Show Password') {
+      this.tooltip_msg[type] = 'Hide Password';
+    } else {
+      this.tooltip_msg[type] = 'Show Password';
+    }
   }
 
   signup() {

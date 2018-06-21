@@ -31,13 +31,29 @@
       </mdc-text-field>
       <p mdcTextFieldHelperText class="error-text" #mobileHelperText="mdcHelperText" [persistent]="true" [validation]="true"></p>
       <mdc-text-field #password appShowHidePassword class="text-box" formControlName="password" [label]="'Password'" [helperText]="passwordHelperText">
-        <mdc-icon trailing clickable class="material-icons md-dark md-24">visibility</mdc-icon>
+        <mdc-icon trailing clickable
+          class="material-icons md-dark md-24"
+          [matTooltip]="tooltip_msg.pass"
+          matTooltipPosition="above"
+          matTooltipClass="tooltip-class"
+          aria-label="Password show/hide tooltip"
+          (click)="changeTooltipMsg('pass')">
+          visibility
+        </mdc-icon>
       </mdc-text-field>
       <p mdcTextFieldHelperText class="error-text" #passwordHelperText="mdcHelperText" [persistent]="true" [validation]="true"></p>
       <mdc-text-field #cnfpassword appShowHidePassword class="text-box" formControlName="cnfpassword" [label]="'Confirm Password'" [helperText]="cnfPasswordHelperText">
-        <mdc-icon trailing clickable class="material-icons md-dark md-24">visibility</mdc-icon>
+        <mdc-icon trailing clickable
+          class="material-icons md-dark md-24"
+          [matTooltip]="tooltip_msg.cnf"
+          matTooltipPosition="above"
+          matTooltipClass="tooltip-class"
+          aria-label="Password show/hide tooltip"
+          (click)="changeTooltipMsg('cnf')">
+          visibility
+        </mdc-icon>
       </mdc-text-field>
-      <p mdcTextFieldHelperText class="error-text" #cnfPasswordHelperText="mdcHelperText" [persistent]="true" [validation]="true"></p>
+      <p mdcTextFieldHelperText class="error-text" #cnfPasswordHelperText="mdcHelperText" [persistent]="true" [validation]="true"></p><br/>
       <mdc-toolbar class="clear-bg">
         <mdc-toolbar-row>
           <mdc-toolbar-section>

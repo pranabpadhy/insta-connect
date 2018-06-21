@@ -9,9 +9,16 @@
       </mdc-text-field>
       <p mdcTextFieldHelperText class="error-text" #emailHelperText="mdcHelperText" [persistent]="true" [validation]="true"></p>
       <mdc-text-field #password appShowHidePassword class="text-box" formControlName="password" [label]="'Password'" [helperText]="passwordHelperText">
-        <mdc-icon trailing clickable class="material-icons md-dark md-24">visibility</mdc-icon>
+        <mdc-icon trailing clickable
+          class="material-icons md-dark md-24"
+          [matTooltip]="tooltip_msg"
+          matTooltipPosition="above"
+          matTooltipClass="tooltip-class"
+          (click)="changeTooltipMsg()">
+          visibility
+      </mdc-icon>
       </mdc-text-field>
-      <p mdcTextFieldHelperText class="error-text" #passwordHelperText="mdcHelperText" [persistent]="true" [validation]="true"></p>
+      <p mdcTextFieldHelperText class="error-text" #passwordHelperText="mdcHelperText" [persistent]="true" [validation]="true"></p><br/>
       <mdc-toolbar class="clear-bg">
         <mdc-toolbar-row>
           <mdc-toolbar-section [alignStart]="true">
@@ -19,10 +26,10 @@
               <mdc-icon matSuffix class="material-icons md-light md-24">lock_open</mdc-icon>&nbsp;Sign in
             </button>
           </mdc-toolbar-section>
-          <mdc-toolbar-section>
-            <button mdc-button class="google" [secondary]="true" [raised]="true" (click)="googleSignin()">
-              <img src="/assets/google_logo.png" alt="Google" style="height: 32px; width: 32px;" />
-            </button>
+          <mdc-toolbar-section [alignEnd]="true">
+            <a mdc-button [secondary]="true" [raised]="true" class="google" (click)="googleSignin()" matTooltip="Sign in with GOOGLE" matTooltipPosition="above" matTooltipClass="tooltip-class" aria-label="Password show/hide tooltip">
+              <img src="/assets/google_logo.png" alt="Google" />
+            </a>
           </mdc-toolbar-section>
         </mdc-toolbar-row>
       </mdc-toolbar>
