@@ -52,11 +52,15 @@ export class SigninComponent implements OnInit {
   signin() {
     if (this.validate()) {
       const hash = crypto.SHA256(this.form.value.password);
-      alert(this.form.value.email + '\n' + hash);
+      alert('valid');
       this.form.reset();
+    } else {
+      alert('invalid');
     }
   }
 
-  googleSignin() {}
+  googleSignin() {
+    alert('Not implemented yet. Please signup');
+  }
 
 }

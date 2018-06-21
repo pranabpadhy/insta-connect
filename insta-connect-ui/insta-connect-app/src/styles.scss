@@ -1,5 +1,10 @@
 /* Rules for sizing the icon. */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.mat-select-value {
+  padding-left: 15px !important;
+}
+
 @import "~material-design-icons/iconfont/material-icons.css";
 .material-icons.md-18 {
   font-size: 18px;
@@ -39,6 +44,21 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+.mdc-text-field__input {
+  padding: 20px 0 1px 15px !important;
+}
+
+.mdc-fab.indigo600Fab {
+  background-color: #2962FF;
+}
+
+.mdc-fab.white500Fab {
+  background-color: #FFFFFF;
+}
+
+.mdc-fab.blue200Fab {
+  background-color: #90CAF9;
+}
 
 /* Theming material design */
 
@@ -115,8 +135,7 @@ $mdc-theme-text-hint-on-dark: #FFFFFF;
 }
 
 a,
-button,
-mat-icon {
+button {
   cursor: pointer;
 }
 

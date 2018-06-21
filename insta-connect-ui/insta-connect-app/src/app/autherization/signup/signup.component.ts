@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import * as crypto from 'crypto-js';
 
 import { UiValidation } from '../../app-common/ui-validation';
 import { IsdCodeList } from '../../app-common/country-isd-code-list';
@@ -15,12 +16,13 @@ export class SignupComponent implements OnInit {
   isdCodeList = IsdCodeList.list;
   error: any;
 
-  @ViewChild('isdCode') isdCode: ElementRef;
   @ViewChild('email') email: MdcTextField;
   @ViewChild('name') name: MdcTextField;
+  @ViewChild('mobile') mobile: MdcTextField;
   @ViewChild('password') password: MdcTextField;
   @ViewChild('cnfpassword') cnfpassword: MdcTextField;
-  constructor(private render: Renderer2) {
+
+  constructor() {
     this.createForm();
   }
 
@@ -44,6 +46,7 @@ export class SignupComponent implements OnInit {
       if (this.form.controls.email.errors.invalidEmail) {
         this.email.setHelperTextContent('Invalid Email');
         this.name.setHelperTextContent(null);
+        this.mobile.setHelperTextContent(null);
         this.password.setHelperTextContent(null);
         this.cnfpassword.setHelperTextContent(null);
         this.error = {};
@@ -51,6 +54,7 @@ export class SignupComponent implements OnInit {
       }
       this.email.setHelperTextContent('Enter a valid Email');
       this.name.setHelperTextContent(null);
+      this.mobile.setHelperTextContent(null);
       this.password.setHelperTextContent(null);
       this.cnfpassword.setHelperTextContent(null);
       this.error = {};
@@ -58,6 +62,7 @@ export class SignupComponent implements OnInit {
     if (this.form.controls.name.errors) {
       this.email.setHelperTextContent(null);
       this.name.setHelperTextContent('Name is required');
+      this.mobile.setHelperTextContent(null);
       this.password.setHelperTextContent(null);
       this.cnfpassword.setHelperTextContent(null);
       this.error = {};
@@ -66,6 +71,7 @@ export class SignupComponent implements OnInit {
     if (this.form.controls.country.errors) {
       this.email.setHelperTextContent(null);
       this.name.setHelperTextContent(null);
+      this.mobile.setHelperTextContent(null);
       this.password.setHelperTextContent(null);
       this.cnfpassword.setHelperTextContent(null);
       this.error = {country: 'Country is required'};
@@ -75,30 +81,34 @@ export class SignupComponent implements OnInit {
       if (this.form.controls.mobile.errors.maxLength || this.form.controls.mobile.errors.minLength) {
         this.email.setHelperTextContent(null);
         this.name.setHelperTextContent(null);
+        this.mobile.setHelperTextContent('Invalid Number');
         this.password.setHelperTextContent(null);
         this.cnfpassword.setHelperTextContent(null);
-        this.error = {mobile: 'Invalid Number'};
+        this.error = {};
         return false;
       }
-      if (!(this.form.value.country.dial_code.concat(this.form.value.mobile)).match(/^(\+\d{1,3}[- ]?)?\d{10}$/)) {
+      if (!(this.form.value.mobile).match(/^(\+\d{1,3}[- ]?)?\d{10}$/)) {
         this.email.setHelperTextContent(null);
         this.name.setHelperTextContent(null);
+        this.mobile.setHelperTextContent('Invalid Number');
         this.password.setHelperTextContent(null);
         this.cnfpassword.setHelperTextContent(null);
-        this.error = {mobile: 'Invalid Number'};
+        this.error = {};
         return false;
       }
       this.email.setHelperTextContent(null);
       this.name.setHelperTextContent(null);
+      this.mobile.setHelperTextContent('Number is required');
       this.password.setHelperTextContent(null);
       this.cnfpassword.setHelperTextContent(null);
-      this.error = {mobile: 'Number is required'};
+      this.error = {};
       return false;
     }
     if (this.form.controls.password.errors) {
       if (this.form.controls.password.errors.invalidPassword) {
         this.email.setHelperTextContent(null);
         this.name.setHelperTextContent(null);
+        this.mobile.setHelperTextContent(null);
         this.password.setHelperTextContent('Invalid Password');
         this.cnfpassword.setHelperTextContent(null);
         this.error = {};
@@ -106,6 +116,7 @@ export class SignupComponent implements OnInit {
       }
       this.email.setHelperTextContent(null);
       this.name.setHelperTextContent(null);
+      this.mobile.setHelperTextContent(null);
       this.password.setHelperTextContent('Enter Password');
       this.cnfpassword.setHelperTextContent(null);
       this.error = {};
@@ -115,6 +126,7 @@ export class SignupComponent implements OnInit {
       if (this.form.value.password !== this.form.value.cnfpassword) {
         this.email.setHelperTextContent(null);
         this.name.setHelperTextContent(null);
+        this.mobile.setHelperTextContent(null);
         this.password.setHelperTextContent(null);
         this.cnfpassword.setHelperTextContent('Passwords doesn\'t match');
         this.error = {};
@@ -122,6 +134,7 @@ export class SignupComponent implements OnInit {
       }
       this.email.setHelperTextContent(null);
       this.name.setHelperTextContent(null);
+      this.mobile.setHelperTextContent(null);
       this.password.setHelperTextContent(null);
       this.cnfpassword.setHelperTextContent('Confirm Password');
       this.error = {};
@@ -129,6 +142,7 @@ export class SignupComponent implements OnInit {
     }
     this.email.setHelperTextContent(null);
     this.name.setHelperTextContent(null);
+    this.mobile.setHelperTextContent(null);
     this.password.setHelperTextContent(null);
     this.cnfpassword.setHelperTextContent(null);
     this.error = {};
@@ -137,13 +151,11 @@ export class SignupComponent implements OnInit {
 
   signup() {
     if (this.validate()) {
+      const hash = crypto.SHA256(this.form.value.password);
       alert('valid');
+      this.form.reset();
     } else {
       alert('invalid');
     }
-  }
-
-  setIsdCode() {
-    this.render.setProperty(this.isdCode.nativeElement, 'innerHTML', this.form.controls.country.value.dial_code + '-');
   }
 }
